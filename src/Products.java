@@ -19,7 +19,7 @@ public class Products {
 
     private static List<Products> listOfProducts = new LinkedList<>();
 
-    public static void addListOfProducts(Products newProduct) {
+    public static void addProductToList(Products newProduct) {
         if (listOfProducts.size() != 0) {
             for (Products product : listOfProducts) {
                 if (product.getName().equals(newProduct.getName())) {
@@ -36,12 +36,11 @@ public class Products {
         for (Products product : listOfProducts) {
             if (product.getName().equals(nameToCheck)) {
                 check = true;
+                System.out.println(nameToCheck + " уже куплен!");
                 break;
             }
         }
-        if (check) {
-            System.out.println(nameToCheck + " уже куплен!");
-        } else {
+        if (!check) {
             System.out.println(nameToCheck + " еще не куплен!");
         }
     }
@@ -52,12 +51,11 @@ public class Products {
             if (product.getName().equals(nameToRemove)) {
                 listOfProducts.remove(product);
                 check = true;
+                System.out.println(nameToRemove + " удален из множества!");
                 break;
             }
         }
-        if (check) {
-            System.out.println(nameToRemove + " удален из множества!");
-        } else {
+        if (!check) {
             System.out.println("Продукт " + nameToRemove + " не найден в множестве!");
         }
     }

@@ -1,10 +1,17 @@
 public class Main {
     public static void main(String[] args) {
         //Добавление продуктов
-        Products.addListOfProducts(new Products("Картофель", 50, 4));
-        Products.addListOfProducts(new Products("Морковь", 40, 1));
-        Products.addListOfProducts(new Products("Лук", 30, 1));
-        Products.addListOfProducts(new Products("Мясо", 500, 2));
+        Products.addProductToList(new Products("Морковь", 40, 1));
+        Products.addProductToList(new Products("Лук", 30, 1));
+        Products.addProductToList(new Products("Мясо", 500, 2));
+
+        //Проверка продуктов в списке
+        Products.сheckProductInList("Лук");
+        Products.сheckProductInList("Томат");
+
+        //Удаление продуктов
+        Products.removeProductInList("Лук");
+        Products.removeProductInList("Томат");
 
         //Вывод на печать
         System.out.println();
