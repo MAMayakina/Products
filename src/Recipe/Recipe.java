@@ -1,3 +1,7 @@
+package Recipe;
+
+import Products.Products;
+
 import java.util.*;
 
 public class Recipe {
@@ -5,7 +9,6 @@ public class Recipe {
     private Products productsForRecipe;
     private int totalCostOfProducts;
     private List<Products> listProductsForRecipe = new LinkedList<Products>();
-    private static Set<Recipe> setOfRecipes = new HashSet<Recipe>();
 
     public Recipe(String name, Products... productsForRecipe) {
         this.name = name;
@@ -20,33 +23,7 @@ public class Recipe {
         }
     }
 
-    public static void addSetOfRecipes(Recipe newRecipe) {
-        if (setOfRecipes.size() != 0) {
-            for (Recipe recipe : setOfRecipes) {
-                if (recipe.getName().equals(newRecipe.getName())) {
-                    throw new RuntimeException("Данный рецепт уже есть!");
-                }
-            }
-        }
-        setOfRecipes.add(newRecipe);
-        System.out.println("Рецепт " + newRecipe.getName() + " успешно добавлен!");
-    }
-
-
-    public static void printSetOfRecipes() {
-        System.out.println("*** Список рецептов: ");
-        int count = 1;
-        for (Recipe recipe : setOfRecipes) {
-            System.out.println(count + ". " + recipe.getName() + ": ");
-            System.out.print("Продукты: ");
-            printProductsForRecipe(recipe);
-            System.out.println();
-            System.out.println("Стоимость всех продуктов у данного рецепта - " + recipe.totalCostOfProducts + "руб.");
-            count++;
-        }
-    }
-
-    private static void printProductsForRecipe(Recipe recipe) {
+    public static void printProductsForRecipe(Recipe recipe) {
         for (Products product : recipe.listProductsForRecipe) {
             System.out.print(product.toString() + ", ");
         }
@@ -81,10 +58,6 @@ public class Recipe {
 
     public int getTotalCostOfProducts() {
         return totalCostOfProducts;
-    }
-
-    public static Set<Recipe> getSetOfRecipes() {
-        return setOfRecipes;
     }
 
     public List<Products> getListProductsForRecipe() {
