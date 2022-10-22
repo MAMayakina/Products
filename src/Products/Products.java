@@ -1,17 +1,17 @@
 package Products;
 
 import java.util.Objects;
+import static Products.ProductsList.addProductToList;
 
 public class Products {
-    String name;
-    int price;
-    int requiredQuantity;
+    private String name;
+    private int price;
 
-    public Products(String name, int price, int requiredQuantity) {
-        if (name != null && !name.isBlank() && !name.isEmpty() && price > 0 && requiredQuantity > 0) {
+    public Products(String name, int price) {
+        if (name != null && !name.isBlank() && !name.isEmpty() && price > 0) {
             this.name = name;
             this.price = price;
-            this.requiredQuantity = requiredQuantity;
+            addProductToList(this);
         } else {
             throw new RuntimeException("Заполните карточку товара " + name + " корректно!");
         }
@@ -19,7 +19,8 @@ public class Products {
 
     @Override
     public String toString() {
-        return name + " (" + price + "руб/кг)" + " - " + requiredQuantity + "кг";
+        return name +
+                " - стоимость" + price;
     }
 
     @Override
@@ -27,12 +28,12 @@ public class Products {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Products products = (Products) o;
-        return price == products.price && requiredQuantity == products.requiredQuantity && Objects.equals(name, products.name);
+        return price == products.price && Objects.equals(name, products.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, requiredQuantity);
+        return Objects.hash(name, price);
     }
 
     public String getName() {
@@ -42,12 +43,4 @@ public class Products {
     public int getPrice() {
         return price;
     }
-
-    public int getRequiredQuantity() {
-        return requiredQuantity;
-    }
-
-
-
-
 }
