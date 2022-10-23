@@ -4,17 +4,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductsList {
-
-    public static List<Products> productsList = new LinkedList<>();
-
-    public ProductsList() {
-    }
+    public static List<Products> productsList = new LinkedList<Products>();
 
     public static void printListOfProduct() {
         System.out.println("*** Список продуктов: ");
 
         for (Products products : productsList) {
-            System.out.println(products.getName()+" - "+products.getPrice()+" руб");
+            System.out.println(products.getName() + " - " + products.getPrice() + " руб");
         }
     }
 
@@ -25,9 +21,9 @@ public class ProductsList {
                     throw new RuntimeException("Данный продукт уже есть!");
                 }
             }
-       }
-            productsList.add(newProduct);
-            System.out.println(newProduct.getName() + " успешно добавлен!");
+        }
+        productsList.add(newProduct);
+        System.out.println(newProduct.getName() + " успешно добавлен!");
     }
 
     public static boolean removeProductOnList(String nameToRemove) {

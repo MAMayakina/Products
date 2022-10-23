@@ -1,9 +1,7 @@
 import Products.Products;
-import ProductsForRecipe.ProductsForRecipe;
 import Recipes.Recipes;
-
+import Recipes.SetOfRecipes;
 import static Products.ProductsList.*;
-import static Recipes.RecipesSet.printAllRecipes;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,11 +22,19 @@ public class Main {
 
         //Рецепты
         System.out.println();
-        Recipes recipe1 = new Recipes("Картофель с мясом", new ProductsForRecipe("Картофель", 2), new ProductsForRecipe("Мясо", 1), new ProductsForRecipe("Лук", 1));
-        Recipes recipe2 = new Recipes("Драники", new ProductsForRecipe("Картофель", 2));
-        Recipes recipe3 = new Recipes("Шашлык", new ProductsForRecipe("Мясо", 1), new ProductsForRecipe("Лук", 1));
+        Recipes recipe1 = new Recipes("Картофель с мясом");
+        recipe1.addProductInReceipe(potato, 3);
+        recipe1.addProductInReceipe(meat, 4);
+        recipe1.addProductInReceipe(onion, 1);
 
-        System.out.println();
-        printAllRecipes();
+        Recipes recipe2 = new Recipes("Драники");
+        recipe2.addProductInReceipe(potato, 2);
+
+        Recipes recipe3 = new Recipes("Шашлык");
+        recipe3.addProductInReceipe(meat, 4);
+        recipe3.addProductInReceipe(onion, 1);
+
+        SetOfRecipes.printAllRecipes();
+
     }
 }

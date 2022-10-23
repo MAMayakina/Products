@@ -1,6 +1,7 @@
 package Products;
 
 import java.util.Objects;
+
 import static Products.ProductsList.addProductToList;
 
 public class Products {
@@ -20,7 +21,7 @@ public class Products {
     @Override
     public String toString() {
         return name +
-                " - стоимость" + price;
+                " (цена " + price + "руб)";
     }
 
     @Override
